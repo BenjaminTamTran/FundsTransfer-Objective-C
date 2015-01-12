@@ -8,7 +8,7 @@
 
 #import "WebServiceHandler.h"
 
-typedef void (^GetBankListWSHandler) (NSString *code, NSDictionary *data, NSError *error);
+typedef void (^GetBankListWSHandler) (NSArray *data, NSError *error);
 @interface GetBankListWS : WebServiceHandler
 @property (nonatomic, strong) GetBankListWSHandler handler;
 +(id)getBankListWS:(GetBankListWSHandler)handler;

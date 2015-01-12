@@ -13,7 +13,8 @@
 +(id)getBankListWS:(GetBankListWSHandler)handler{
     GetBankListWS* webService = [[GetBankListWS alloc] init];
     webService.handler = handler;
-    [webService startGetRequest:@""];
+    NSString *urlAction = [[NSString alloc] initWithFormat:@"%@/%@", kBaseURL, kBankListAction];
+    [webService startGetRequest:urlAction];
     return webService;
 }
 
@@ -23,19 +24,20 @@
                                                               error:nil];
     if (jsonDic) {
         if (self.handler) {
-            NSString *code = [jsonDic objectNotNullForKey:@"code"];
-            self.handler(code, jsonDic, nil);
+            NSDictionary *entries = [jsonDic objectNotNullForKey:@"Entries"];
+            NSArray *entry = [entries objectNotNullForKey:@"Entry"];
+            self.handler(entry, nil);
         }
     } else {
         if (self.handler) {
-            self.handler(nil, nil, nil);
+            self.handler(nil, nil);
         }
     }
 }
 
 - (void)didRequestFailWithError:(NSError *)error {
     if (self.handler) {
-        self.handler(nil, nil, error);
+        self.handler(nil, error);
     }
 }
 

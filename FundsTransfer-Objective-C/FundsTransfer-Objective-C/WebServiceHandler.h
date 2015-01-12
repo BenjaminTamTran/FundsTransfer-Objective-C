@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WebServiceHandler : NSObject
+@interface WebServiceHandler : NSObject <NSURLConnectionDelegate>
 @property(nonatomic,strong) NSURLConnection*    connection;
 @property(nonatomic,strong) NSMutableData*      data;
 - (void)didReceiveData:(NSData *)data;

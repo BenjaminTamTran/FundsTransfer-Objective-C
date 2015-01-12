@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <AddressBookUI/AddressBookUI.h>
+#import "GetBankListWS.h"
 
 @implementation ViewController {
     CGFloat transferInfoDefaultY;
@@ -112,7 +114,9 @@
 }
 
 - (void)fetchData {
-    
+    [GetBankListWS getBankListWS:^(NSArray *data, NSError *error) {
+        NSLog(@"data.count %lu", (unsigned long)data.count);
+    }];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -128,7 +132,7 @@
 
 #pragma mark - Actions
 - (IBAction)hideKeyBoardAction:(id)sender {
-    
+    [self.view endEditing:YES];
 }
 - (IBAction)openAddressBookButton:(id)sender {
     

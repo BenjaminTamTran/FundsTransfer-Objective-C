@@ -41,9 +41,16 @@
 
 -(void)startGetRequest:(NSString*) urlRequest
 {
-	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlRequest]
-											 cachePolicy:NSURLRequestUseProtocolCachePolicy
-										 timeoutInterval:30];
+//	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlRequest]
+//											 cachePolicy:NSURLRequestUseProtocolCachePolicy
+//										 timeoutInterval:60];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlRequest]];
+    
+    [request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
+    [request setTimeoutInterval:60];
+    request.HTTPMethod = @"GET";
+    [request setValue:kBearAtuthenticationHeaderValue forHTTPHeaderField:@"Authorization"];
+    [request setValue:kMsisdnHeaderValue forHTTPHeaderField:@"Msisdn"];
     self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
     
 }
@@ -126,6 +133,12 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     self.data = [[NSMutableData alloc] init];
+}
+
+-(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    if ([[challenge protectionSpace] authenticationMethod] == NSURLAuthenticationMethodServerTrust) {
+        [[challenge sender] useCredential:[NSURLCredential credentialForTrust:[[challenge protectionSpace] serverTrust]] forAuthenticationChallenge:challenge];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)receivedData {
