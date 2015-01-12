@@ -8,8 +8,40 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    @private
+        IBOutlet UIView* accountInfoView;
+        IBOutlet UILabel* balanceAmountLabel;
+        IBOutlet UILabel* leftAmountLabel;
+        IBOutlet UIView* transferInfoView;
+        IBOutlet UIView* transferInfoBGView;
+        IBOutlet UIView* bankInfoView;
+        IBOutlet UIView* bankInfoBGView;
+        IBOutlet UIButton* hideKeyboardButton;
+        IBOutlet NSLayoutConstraint* transferAreaTopConstraint;
+        IBOutlet UITextField* contactEmailTextField;
+        IBOutlet NSLayoutConstraint* leadingMainViewPaymentRConstraint;
+        IBOutlet NSLayoutConstraint* widthMainViewPaymentConstraints;
+        IBOutlet UIView* backgroundInnerPaymentView;
+        IBOutlet UIView* backgroundPaymentView;
+        IBOutlet NSLayoutConstraint* leadingMainViewBankLRConstraint;
+        IBOutlet NSLayoutConstraint* widthMainViewBankLConstraints;
+        IBOutlet UITextField* bankSelectedTxtField;
+        IBOutlet UITableView* bankListTableView;
+        IBOutlet UITextField* accountNumberTextFiled;
+        IBOutlet UILabel* amountTransferLabel;
+        IBOutlet UILabel* accountNameLabel;
+        IBOutlet UITextField* amountTransferTxtField;
 
+}
 
+- (IBAction)hideKeyBoardAction:(id)sender;
+- (IBAction)openAddressBookButton:(id)sender;
+- (IBAction)goBackAction:(id)sender;
+- (IBAction)payNowAction:(id)sender;
+- (IBAction)openBankListAciton:(id)sender;
+- (IBAction)closeBankListAction:(id)sender;
+- (IBAction)selectBankInfoAction:(id)sender;
+- (IBAction)confirmPaymentAction:(id)sender;
 @end
 
