@@ -35,13 +35,5 @@
 
 }
 
-- (IBAction)hideKeyBoardAction:(id)sender;
-- (IBAction)openAddressBookButton:(id)sender;
-- (IBAction)goBackAction:(id)sender;
-- (IBAction)payNowAction:(id)sender;
-- (IBAction)openBankListAciton:(id)sender;
-- (IBAction)closeBankListAction:(id)sender;
-- (IBAction)selectBankInfoAction:(id)sender;
-- (IBAction)confirmPaymentAction:(id)sender;
 @end
 

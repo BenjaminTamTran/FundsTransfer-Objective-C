@@ -15,6 +15,9 @@
 		F8D544A51A63E0070099E394 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D544A41A63E0070099E394 /* Images.xcassets */; };
 		F8D544A81A63E0070099E394 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D544A61A63E0070099E394 /* LaunchScreen.xib */; };
 		F8D544B41A63E0070099E394 /* FundsTransfer_Objective_CTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544B31A63E0070099E394 /* FundsTransfer_Objective_CTests.m */; };
+		F8D544C61A6409E30099E394 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544C21A6409E30099E394 /* NSDictionary+Extension.m */; };
+		F8D544C71A6409E30099E394 /* WebServiceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544C41A6409E30099E394 /* WebServiceHandler.m */; };
+		F8D544D11A640DF60099E394 /* GetBankListWS.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544D01A640DF60099E394 /* GetBankListWS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,15 @@
 		F8D544AD1A63E0070099E394 /* FundsTransfer-Objective-CTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FundsTransfer-Objective-CTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D544B21A63E0070099E394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8D544B31A63E0070099E394 /* FundsTransfer_Objective_CTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FundsTransfer_Objective_CTests.m; sourceTree = "<group>"; };
+		F8D544C11A6409E30099E394 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
+		F8D544C21A6409E30099E394 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
+		F8D544C31A6409E30099E394 /* WebServiceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceHandler.h; sourceTree = "<group>"; };
+		F8D544C41A6409E30099E394 /* WebServiceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceHandler.m; sourceTree = "<group>"; };
+		F8D544CD1A640BF00099E394 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		F8D544CE1A640D320099E394 /* prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prefix.h; sourceTree = "<group>"; };
+		F8D544CF1A640DF60099E394 /* GetBankListWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBankListWS.h; sourceTree = "<group>"; };
+		F8D544D01A640DF60099E394 /* GetBankListWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBankListWS.m; sourceTree = "<group>"; };
+		F8D544D21A64134E0099E394 /* Resource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +95,13 @@
 		F8D544931A63E0070099E394 /* FundsTransfer-Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				F8D544CC1A640BA80099E394 /* Others */,
+				F8D544CB1A640A100099E394 /* View */,
+				F8D544CA1A640A090099E394 /* Model */,
+				F8D544C91A640A000099E394 /* Controller */,
+				F8D544C81A6409F20099E394 /* API */,
 				F8D544981A63E0070099E394 /* AppDelegate.h */,
 				F8D544991A63E0070099E394 /* AppDelegate.m */,
-				F8D5449E1A63E0070099E394 /* ViewController.h */,
-				F8D5449F1A63E0070099E394 /* ViewController.m */,
 				F8D544A11A63E0070099E394 /* Main.storyboard */,
 				F8D544A41A63E0070099E394 /* Images.xcassets */,
 				F8D544A61A63E0070099E394 /* LaunchScreen.xib */,
@@ -120,6 +135,52 @@
 				F8D544B21A63E0070099E394 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8D544C81A6409F20099E394 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F8D544C11A6409E30099E394 /* NSDictionary+Extension.h */,
+				F8D544C21A6409E30099E394 /* NSDictionary+Extension.m */,
+				F8D544C31A6409E30099E394 /* WebServiceHandler.h */,
+				F8D544C41A6409E30099E394 /* WebServiceHandler.m */,
+				F8D544CF1A640DF60099E394 /* GetBankListWS.h */,
+				F8D544D01A640DF60099E394 /* GetBankListWS.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		F8D544C91A640A000099E394 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8D5449E1A63E0070099E394 /* ViewController.h */,
+				F8D5449F1A63E0070099E394 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F8D544CA1A640A090099E394 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F8D544CB1A640A100099E394 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F8D544CC1A640BA80099E394 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				F8D544CD1A640BF00099E394 /* Config.h */,
+				F8D544CE1A640D320099E394 /* prefix.h */,
+				F8D544D21A64134E0099E394 /* Resource.h */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +284,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D5449D1A63E0070099E394 /* FundsTransfer_Objective_C.xcdatamodeld in Sources */,
+				F8D544C61A6409E30099E394 /* NSDictionary+Extension.m in Sources */,
 				F8D5449A1A63E0070099E394 /* AppDelegate.m in Sources */,
+				F8D544D11A640DF60099E394 /* GetBankListWS.m in Sources */,
+				F8D544C71A6409E30099E394 /* WebServiceHandler.m in Sources */,
 				F8D544A01A63E0070099E394 /* ViewController.m in Sources */,
 				F8D544971A63E0070099E394 /* main.m in Sources */,
 			);
@@ -347,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "FundsTransfer-Objective-C/prefix.h";
 				INFOPLIST_FILE = "FundsTransfer-Objective-C/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -358,6 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "FundsTransfer-Objective-C/prefix.h";
 				INFOPLIST_FILE = "FundsTransfer-Objective-C/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
