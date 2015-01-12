@@ -114,8 +114,10 @@
 }
 
 - (void)fetchData {
+    [self addIndicator];
     [GetBankListWS getBankListWS:^(NSArray *data, NSError *error) {
         NSLog(@"data.count %lu", (unsigned long)data.count);
+        [self removeIndicator];
     }];
 }
 
@@ -127,6 +129,50 @@
 - (void)keyboardWillShow:(NSNotification *)notification {
     hideKeyboardButton.hidden = NO;
     transferAreaTopConstraint.constant = accountInfoView.frame.origin.y;
+}
+
+- (void)addIndicator{
+    UIView* indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+    [self.view addSubview:indicatorView];
+    indicatorView.tag = 1001;
+    indicatorView.backgroundColor = [UIColor clearColor];
+    indicatorView.center = [self.view center];
+    
+    //gray background
+    UIView* backGround = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+    backGround.backgroundColor = [UIColor blackColor];
+    backGround.alpha = 0.6;
+    backGround.layer.cornerRadius = 10.0;
+    backGround.layer.masksToBounds = YES;
+    [indicatorView addSubview:backGround];
+    
+    //indicator
+    UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicator.alpha = 1.0;
+    activityIndicator.frame = CGRectMake(50, 50, 50, 50);
+    activityIndicator.backgroundColor = [UIColor clearColor];
+    activityIndicator.hidesWhenStopped = NO;
+    [indicatorView addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    
+    //label
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(40, 110, 100, 20)];
+    label.text = @"Loading...";
+    label.textColor = [UIColor whiteColor];
+    [indicatorView addSubview:label];
+}
+
+- (void)removeIndicator{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (UIView* vElement in self.view.subviews) {
+            if (vElement.tag == 1001) {
+                [vElement removeFromSuperview];
+            }
+            else {
+                vElement.userInteractionEnabled = YES;
+            }
+        }
+    });
 }
 
 

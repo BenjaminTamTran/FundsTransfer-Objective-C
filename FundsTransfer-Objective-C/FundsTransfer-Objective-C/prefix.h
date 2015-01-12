@@ -20,4 +20,5 @@
     #import "Config.h"
     #import "Resource.h"
     #import "NSDictionary+Extension.h"
+    #import "Utility.h"
 #endif
