@@ -29,6 +29,7 @@
  Below 2 methods have to be overriden by subclasses
  Handle when finish receive data or connection have a problem
  */
+
 - (void)didReceiveData:(NSData *)data {
     [NSException raise:NSInternalInconsistencyException format:@"Subclass must override %@ method", NSStringFromSelector(_cmd)];
 }
@@ -40,19 +41,21 @@
 
 #pragma mark - Post/Get Method
 
+// GET method
 -(void)startGetRequest:(NSString*) urlRequest
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlRequest]];
-    
     [request setCachePolicy:NSURLRequestUseProtocolCachePolicy];
     [request setTimeoutInterval:60];
     request.HTTPMethod = @"GET";
+    
+    // Hardcode Bear Authentication Value and Msisdn Value
     [request setValue:kBearAtuthenticationHeaderValue forHTTPHeaderField:@"Authorization"];
     [request setValue:kMsisdnHeaderValue forHTTPHeaderField:@"Msisdn"];
     self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
-    
 }
 
+// POST Method
 -(void)startPostRequestWithJSON:(NSString*) urlRequest withBodyData:(NSData*)bodyData{
     NSURL *url = [NSURL URLWithString:urlRequest];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -61,11 +64,10 @@
     [request setTimeoutInterval:60];
     request.HTTPMethod = @"POST";
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    // Hardcode Bear Authentication Value and Msisdn Value
     [request setValue:kBearAtuthenticationHeaderValue forHTTPHeaderField:@"Authorization"];
     [request setValue:kMsisdnHeaderValue forHTTPHeaderField:@"Msisdn"];
-//    [request addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[bodyData length]] forHTTPHeaderField:@"Content-Length"];
-    
-    // set request body
     [request setHTTPBody:bodyData];
     self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
 }

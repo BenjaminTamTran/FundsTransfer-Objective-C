@@ -13,6 +13,8 @@
 +(id)getBankListWS:(GetBankListWSHandler)handler{
     GetBankListWS* webService = [[GetBankListWS alloc] init];
     webService.handler = handler;
+    
+    // Use Action Bank List, API-1
     NSString *urlAction = [[NSString alloc] initWithFormat:@"%@/%@", kBaseURL, kBankListAction];
     [webService startGetRequest:urlAction];
     return webService;
@@ -25,6 +27,8 @@
     if (jsonDic) {
         if (self.handler) {
             NSDictionary *entries = [jsonDic objectNotNullForKey:@"Entries"];
+            
+            // Get the array of dictionary of Bank info
             NSArray *entry = [entries objectNotNullForKey:@"Entry"];
             self.handler(entry, nil);
         }

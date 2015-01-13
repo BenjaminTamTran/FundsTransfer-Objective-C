@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDictionary (Extension)
+
 -(id)objectNotNullForKey:(id)key;
+
 @end

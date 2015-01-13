@@ -1,7 +1,7 @@
 //
 //  Localize.h
 //  FundsTransfer-Objective-C
-//
+//  This file is used for localization of the project
 //  Created by Tran Huu Tam on 1/13/15.
 //  Copyright (c) 2015 BenjaminSoft. All rights reserved.
 //

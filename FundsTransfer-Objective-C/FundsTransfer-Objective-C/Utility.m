@@ -11,6 +11,7 @@
 
 @implementation Utility
 
+// Add indicator to the main view controller at the Center Point
 + (void)addIndicator:(UIViewController*) viewC {
     UIView* indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
     [viewC.view addSubview:indicatorView];
@@ -42,6 +43,7 @@
     [indicatorView addSubview:label];
 }
 
+// Remove the indicator of the main view controller
 + (void)removeIndicator:(UIViewController*) viewC {
     dispatch_async(dispatch_get_main_queue(), ^{
         for (UIView* vElement in viewC.view.subviews) {
@@ -55,6 +57,7 @@
     });
 }
 
+// Show Alert view with Message and Title with OK Button
 + (void) showAlertWithMessage:(NSString*)message withTitle:(NSString*)title {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:kTitleOKBtn otherButtonTitles:nil, nil];
@@ -62,6 +65,7 @@
     });
 }
 
+// Return the Currentcy format in "Rp 5,000.00"
 + (NSString*)amountInRpFormat:(NSString*) amountInString {
     NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
     NSNumber* number = [formatter numberFromString:amountInString];

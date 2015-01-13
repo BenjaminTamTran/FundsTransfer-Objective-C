@@ -9,7 +9,11 @@
 #import "WebServiceHandler.h"
 
 typedef void (^GetAccountInfoWSHandler) (NSString *balanceAmount, NSString *remainingLimit, NSError *error);
+
 @interface GetAccountInfoWS : WebServiceHandler
+
 @property (nonatomic, strong) GetAccountInfoWSHandler handler;
+
 +(id)getGetAccountInfoWS:(GetAccountInfoWSHandler)handler;
+
 @end

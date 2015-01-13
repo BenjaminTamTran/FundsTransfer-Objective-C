@@ -19,6 +19,7 @@
 }
 
 #pragma mark - View's lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _localize];
@@ -28,7 +29,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self fetchAccountData];
+    [self fetchAccountData];
+    // Observe for Keyboard show/hide
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -48,27 +50,33 @@
 
 
 #pragma mark - View's memory handler
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 
 #pragma mark - View's orientation handler
+
 - (BOOL)shouldAutorotate {
     return false;
 }
+
 - (NSUInteger)supportedInterfaceOrientations {
     return (UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown);
 }
+
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
 
 #pragma mark - View's transition event handler
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 }
@@ -80,17 +88,19 @@
 
 
 #pragma mark - Class's private methods
+
 - (void)_localize {
+    
+}
+
+- (void)_initialize {
     dataBankListArr = [[NSMutableArray alloc] init];
     selectedBankName = @"";
     selectedBankCode = @"";
 }
 
-- (void)_initialize {
-    
-}
-
 - (void)_visualize {
+    // Round corner some views
     accountInfoView.layer.cornerRadius = 10;
     accountInfoView.layer.masksToBounds = YES;
     
@@ -119,11 +129,14 @@
     leadingMainViewBankLRConstraint.constant = kScreenWidth;
     
     [bankListTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kBankCellIdentifier];
+    
+    //Set default value for some fields
     accountNumberTextFiled.text = @"1020028960";
     amountTransferTxtField.text = @"9000";
     transferInfoDefaultY = transferInfoView.frame.origin.y;
 }
 
+// Fetch Account information, using API-1
 - (void)fetchAccountData {
     [Utility addIndicator:self];
     [GetAccountInfoWS getGetAccountInfoWS:^(NSString *balanceAmount, NSString *remainingLimit, NSError *error) {
@@ -137,22 +150,26 @@
     }];
 }
 
+// Call when Keyboard hide
 - (void)keyboardWillHide:(NSNotification *)notification {
     hideKeyboardButton.hidden = YES;
     transferAreaTopConstraint.constant = transferInfoDefaultY;
 }
 
+// Call when keyboard show
 - (void)keyboardWillShow:(NSNotification *)notification {
     hideKeyboardButton.hidden = NO;
     transferAreaTopConstraint.constant = accountInfoView.frame.origin.y;
 }
 
 #pragma mark - Actions
+
 - (IBAction)hideKeyBoardAction:(id)sender {
     [self.view endEditing:YES];
 }
 
 - (IBAction)openAddressBookButton:(id)sender {
+    // Open contact app to select Person first name and last name
     ABPeoplePickerNavigationController* picker = [[ABPeoplePickerNavigationController alloc] init];
     picker.peoplePickerDelegate = self;
     [self presentViewController:picker animated:YES completion:nil];
@@ -170,10 +187,14 @@
         return;
     }
     [Utility addIndicator:self];
+    
+    // Submit Funds Transfer using API-3
     [PostFundsTransferWS postFundsTransferWS:^(NSString *destAcctName, NSError *error) {
         [Utility removeIndicator:self];
         if (destAcctName != nil) {
             leadingMainViewPaymentRConstraint.constant = 0;
+            
+            // Display the Destination Account Name
             accountNameLabel.text = destAcctName;
             NSString* amountTransfer =  amountTransferTxtField.text;
             if (amountTransfer.length > 0) {
@@ -186,6 +207,7 @@
     } withDestAcctNo:accountNumberTextFiled.text andAmount:amountTransferTxtField.text];
 }
 
+// Get the Bank List updated from Server, using API-2
 - (IBAction)openBankListAciton:(id)sender {
     [Utility addIndicator:self];
     [GetBankListWS getBankListWS:^(NSArray *dataArr, NSError *error) {
@@ -211,11 +233,14 @@
     leadingMainViewBankLRConstraint.constant = kScreenWidth;
 }
 
+// Just show the Confirmation message when user select Confirm
 - (IBAction)confirmPaymentAction:(id)sender {
     [Utility showAlertWithMessage:kPaymentSentMessage withTitle:kTitlePayment];
 }
 
 #pragma mark - ABPeoplePickerNavigationControllerDelegate's methods
+
+// Delegate to get Person information from Contact and display First Name + Last Name
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person {
     CFStringRef firstName = (CFStringRef)ABRecordCopyValue(person,kABPersonFirstNameProperty);
     CFStringRef lastName = (CFStringRef)ABRecordCopyValue(person,kABPersonLastNameProperty);
@@ -223,6 +248,7 @@
 }
 
 #pragma mark - UITableViewDataSource's members
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return dataBankListArr.count;
 }
@@ -240,6 +266,7 @@
 #pragma mark - UITableViewDelegate's members
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Save the HighLight Person which selected
     NSDictionary* bankInfo = [dataBankListArr objectAtIndex:indexPath.row];
     if (bankInfo != nil) {
         selectedBankName = [bankInfo objectForKey:@"Name"];

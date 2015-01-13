@@ -13,12 +13,14 @@
 + (id)postFundsTransferWS:(PostFundsTransferWSHandler)handler withDestAcctNo:(NSString*)destAcctNo andAmount:(NSString*)amt {
     PostFundsTransferWS* webService = [[PostFundsTransferWS alloc] init];
     webService.handler = handler;
+    
+    // Action Post Transfer fund info, API-3
     NSString *urlAction = [[NSString alloc] initWithFormat:@"%@/%@", kBaseURL, kInitTransferAction];
+    
+    // JSON Format
     NSString *jsonRequest = [NSString stringWithFormat:@"{\"TransferAddRq\": {\"TransferInfo\": {\"DestAcctNo\": \"\%@\", \"DestBankCode\": \"950\", \"Amt\": \"\%@\", \"TranType\": \"I001\"} } }", destAcctNo, amt];
     NSData *requestData = [jsonRequest dataUsingEncoding:NSUTF8StringEncoding];
-    
     [webService startPostRequestWithJSON:urlAction withBodyData:requestData];
-    
     return webService;
 }
 
@@ -28,6 +30,8 @@
                                                               error:nil];
     if (jsonDic) {
         if (self.handler) {
+            
+            // Get DestAcctName from TransferInfo dictionary
             NSDictionary *transferInfo = [jsonDic objectNotNullForKey:@"TransferInfo"];
             NSString* destAcctName = [transferInfo objectNotNullForKey:@"DestAcctName"];
             self.handler(destAcctName, nil);

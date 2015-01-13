@@ -9,6 +9,8 @@
 #import "NSDictionary+Extension.h"
 
 @implementation NSDictionary (Extension)
+
+// Get the Not Null Object from Key
 -(id)objectNotNullForKey:(id)key{
     id object = [self objectForKey:key];
     if ([object isKindOfClass:[NSNull class]]) {

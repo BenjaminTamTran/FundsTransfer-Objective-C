@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 @interface Utility : NSObject
+
 + (void)addIndicator:(UIViewController*) viewC;
 + (void)removeIndicator:(UIViewController*) viewC;
 + (void)showAlertWithMessage:(NSString*)string withTitle:(NSString*)title;
 + (NSString*)amountInRpFormat:(NSString*) amountInString;
+
 @end

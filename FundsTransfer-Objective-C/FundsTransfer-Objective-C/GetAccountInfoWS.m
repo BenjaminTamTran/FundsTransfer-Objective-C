@@ -13,6 +13,8 @@
 +(id)getGetAccountInfoWS:(GetAccountInfoWSHandler)handler {
     GetAccountInfoWS* webService = [[GetAccountInfoWS alloc] init];
     webService.handler = handler;
+    
+    // Action Accoutn info, API-2
     NSString *urlAction = [[NSString alloc] initWithFormat:@"%@/%@", kBaseURL, kAccountInfoAction];
     [webService startGetRequest:urlAction];
     return webService;
@@ -24,6 +26,8 @@
                                                               error:nil];
     if (jsonDic) {
         if (self.handler) {
+            
+            // Get BalanceAmount from AcctInfo Dictionary and RemainingLimit from LimitInfo dictionary
             NSDictionary *acctInfo = [jsonDic objectNotNullForKey:@"AcctInfo"];
             NSDictionary *limitInfo = [jsonDic objectNotNullForKey:@"LimitInfo"];
             NSString* balanceAmount = [acctInfo objectNotNullForKey:@"BalanceAmount"];
