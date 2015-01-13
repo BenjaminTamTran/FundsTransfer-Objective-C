@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "ViewController.h"
+#import "Utility.h"
+
 @interface FundsTransfer_Objective_CTests : XCTestCase
     @property (nonatomic, strong) ViewController *viewC;
 
@@ -101,8 +103,15 @@
     XCTAssertFalse([cell.reuseIdentifier isEqualToString:expectedReuseIdentifier], @"Table create reusable cells");
 }
 
-#pragma mark - Banking list tests
 
+#pragma mark - Utility tests
+
+- (void)testUtilityamountInRpFormat
+{
+    NSString* amountInString = @"500000";
+    NSString* expectedAmountInRp = @"Rp 500,000.00";
+    XCTAssertTrue([expectedAmountInRp isEqualToString:[Utility amountInRpFormat:amountInString]], @"The Rp value is not expected");
+}
 
 
 @end
