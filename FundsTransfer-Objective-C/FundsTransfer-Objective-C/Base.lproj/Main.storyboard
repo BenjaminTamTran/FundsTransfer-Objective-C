@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XhE-X3-fFg">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Make a payment-->
         <scene sceneID="grc-dT-BRh">
             <objects>
-                <viewController title="Make a payment" id="XhE-X3-fFg" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewControllerID" title="Make a payment" id="XhE-X3-fFg" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tny-1b-IPK"/>
                         <viewControllerLayoutGuide type="bottom" id="sKy-dc-uP4"/>
@@ -577,6 +576,7 @@
                         <outlet property="bankInfoBGView" destination="EA8-pv-vGK" id="ZVQ-Ro-DeP"/>
                         <outlet property="bankInfoView" destination="dwV-lo-fpa" id="8he-kK-KW2"/>
                         <outlet property="bankListTableView" destination="PL6-83-2P9" id="XEL-qP-cuk"/>
+                        <outlet property="bankListView" destination="D32-ww-Xur" id="PRI-6t-oTW"/>
                         <outlet property="bankSelectedTxtField" destination="60L-BY-BiV" id="5vH-rR-EcA"/>
                         <outlet property="contactEmailTextField" destination="Pps-zZ-vTF" id="Vuh-N2-bJF"/>
                         <outlet property="hideKeyboardButton" destination="lCU-OY-34E" id="Tsc-QS-v90"/>

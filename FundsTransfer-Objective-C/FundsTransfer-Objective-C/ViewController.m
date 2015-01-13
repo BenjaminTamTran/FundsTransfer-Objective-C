@@ -29,7 +29,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self fetchAccountData];
+//    [self fetchAccountData];
     // Observe for Keyboard show/hide
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -101,39 +101,39 @@
 
 - (void)_visualize {
     // Round corner some views
-    accountInfoView.layer.cornerRadius = 10;
-    accountInfoView.layer.masksToBounds = YES;
+    _accountInfoView.layer.cornerRadius = 10;
+    _accountInfoView.layer.masksToBounds = YES;
     
-    transferInfoView.layer.cornerRadius = 10;
-    transferInfoView.layer.masksToBounds = YES;
-    transferInfoBGView.layer.cornerRadius = 5;
-    transferInfoBGView.layer.masksToBounds = YES;
+    _transferInfoView.layer.cornerRadius = 10;
+    _transferInfoView.layer.masksToBounds = YES;
+    _transferInfoBGView.layer.cornerRadius = 5;
+    _transferInfoBGView.layer.masksToBounds = YES;
     
-    bankInfoView.layer.cornerRadius = 10;
-    bankInfoView.layer.masksToBounds = YES;
-    bankInfoBGView.layer.cornerRadius = 5;
-    bankInfoBGView.layer.masksToBounds = YES;
+    _bankInfoView.layer.cornerRadius = 10;
+    _bankInfoView.layer.masksToBounds = YES;
+    _bankInfoBGView.layer.cornerRadius = 5;
+    _bankInfoBGView.layer.masksToBounds = YES;
     
-    backgroundPaymentView.layer.cornerRadius = 10;
-    backgroundPaymentView.layer.masksToBounds = YES;
-    backgroundInnerPaymentView.layer.cornerRadius = 5;
-    backgroundInnerPaymentView.layer.masksToBounds = YES;
+    _backgroundPaymentView.layer.cornerRadius = 10;
+    _backgroundPaymentView.layer.masksToBounds = YES;
+    _backgroundInnerPaymentView.layer.cornerRadius = 5;
+    _backgroundInnerPaymentView.layer.masksToBounds = YES;
     
-    bankListTableView.layer.cornerRadius = 10;
-    bankListTableView.layer.masksToBounds = YES;
+    _bankListTableView.layer.cornerRadius = 10;
+    _bankListTableView.layer.masksToBounds = YES;
     
-    widthMainViewPaymentConstraints.constant = kScreenWidth;
-    leadingMainViewPaymentRConstraint.constant = kScreenWidth;
+    _widthMainViewPaymentConstraints.constant = kScreenWidth;
+    _leadingMainViewPaymentRConstraint.constant = kScreenWidth;
     
-    widthMainViewBankLConstraints.constant = kScreenWidth;
-    leadingMainViewBankLRConstraint.constant = kScreenWidth;
+    _widthMainViewBankLConstraints.constant = kScreenWidth;
+    _leadingMainViewBankLRConstraint.constant = kScreenWidth;
     
-    [bankListTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kBankCellIdentifier];
+    [_bankListTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kBankCellIdentifier];
     
     //Set default value for some fields
-    accountNumberTextFiled.text = @"1020028960";
-    amountTransferTxtField.text = @"9000";
-    transferInfoDefaultY = transferInfoView.frame.origin.y;
+    _accountNumberTextFiled.text = @"1020028960";
+    _amountTransferTxtField.text = @"9000";
+    transferInfoDefaultY = _transferInfoView.frame.origin.y;
 }
 
 // Fetch Account information, using API-1
@@ -142,24 +142,24 @@
     [GetAccountInfoWS getGetAccountInfoWS:^(NSString *balanceAmount, NSString *remainingLimit, NSError *error) {
         [Utility removeIndicator:self];
         if (balanceAmount != nil) {
-            balanceAmountLabel.text = [Utility amountInRpFormat:balanceAmount];
+            _balanceAmountLabel.text = [Utility amountInRpFormat:balanceAmount];
         }
         if (remainingLimit != nil) {
-            leftAmountLabel.text = [Utility amountInRpFormat:remainingLimit];
+            _leftAmountLabel.text = [Utility amountInRpFormat:remainingLimit];
         }
     }];
 }
 
 // Call when Keyboard hide
 - (void)keyboardWillHide:(NSNotification *)notification {
-    hideKeyboardButton.hidden = YES;
-    transferAreaTopConstraint.constant = transferInfoDefaultY;
+    _hideKeyboardButton.hidden = YES;
+    _transferAreaTopConstraint.constant = transferInfoDefaultY;
 }
 
 // Call when keyboard show
 - (void)keyboardWillShow:(NSNotification *)notification {
-    hideKeyboardButton.hidden = NO;
-    transferAreaTopConstraint.constant = accountInfoView.frame.origin.y;
+    _hideKeyboardButton.hidden = NO;
+    _transferAreaTopConstraint.constant = _accountInfoView.frame.origin.y;
 }
 
 #pragma mark - Actions
@@ -176,12 +176,12 @@
 }
 
 - (IBAction)goBackAction:(id)sender {
-    leadingMainViewPaymentRConstraint.constant = kScreenWidth;
+    _leadingMainViewPaymentRConstraint.constant = kScreenWidth;
 }
 
 - (IBAction)payNowAction:(id)sender {
-    NSString* accountNumber =  accountNumberTextFiled.text;
-    NSString* amountTransfer =  amountTransferTxtField.text;
+    NSString* accountNumber =  _accountNumberTextFiled.text;
+    NSString* amountTransfer =  _amountTransferTxtField.text;
     if ((accountNumber.length < 1) || (amountTransfer.length < 1)) {
         [Utility showAlertWithMessage:kInputParamsWrongMessage withTitle:kTitleWarning];
         return;
@@ -192,19 +192,19 @@
     [PostFundsTransferWS postFundsTransferWS:^(NSString *destAcctName, NSError *error) {
         [Utility removeIndicator:self];
         if (destAcctName != nil) {
-            leadingMainViewPaymentRConstraint.constant = 0;
+            _leadingMainViewPaymentRConstraint.constant = 0;
             
             // Display the Destination Account Name
-            accountNameLabel.text = destAcctName;
-            NSString* amountTransfer =  amountTransferTxtField.text;
+            _accountNameLabel.text = destAcctName;
+            NSString* amountTransfer =  _amountTransferTxtField.text;
             if (amountTransfer.length > 0) {
-                amountTransferLabel.text = [Utility amountInRpFormat:amountTransfer];
+                _amountTransferLabel.text = [Utility amountInRpFormat:amountTransfer];
             }
         }
         else {
             [Utility showAlertWithMessage:kSomethingWrongMessage withTitle:kTitleWarning];
         }
-    } withDestAcctNo:accountNumberTextFiled.text andAmount:amountTransferTxtField.text];
+    } withDestAcctNo:_accountNumberTextFiled.text andAmount:_amountTransferTxtField.text];
 }
 
 // Get the Bank List updated from Server, using API-2
@@ -214,9 +214,9 @@
         NSLog(@"data.count %lu", (unsigned long)dataArr.count);
         [Utility removeIndicator:self];
         if (dataArr != nil) {
-            leadingMainViewBankLRConstraint.constant = 0;
+            _leadingMainViewBankLRConstraint.constant = 0;
             dataBankListArr = [[NSMutableArray alloc] initWithArray:dataArr];
-            [bankListTableView reloadData];
+            [_bankListTableView reloadData];
         }
         else {
             [Utility showAlertWithMessage:kSomethingWrongMessage withTitle:kTitleWarning];
@@ -225,12 +225,12 @@
 }
 
 - (IBAction)closeBankListAction:(id)sender {
-    leadingMainViewBankLRConstraint.constant = kScreenWidth;
+    _leadingMainViewBankLRConstraint.constant = kScreenWidth;
 }
 
 - (IBAction)selectBankInfoAction:(id)sender {
-    bankSelectedTxtField.text = selectedBankName;
-    leadingMainViewBankLRConstraint.constant = kScreenWidth;
+    _bankSelectedTxtField.text = selectedBankName;
+    _leadingMainViewBankLRConstraint.constant = kScreenWidth;
 }
 
 // Just show the Confirmation message when user select Confirm
@@ -244,7 +244,7 @@
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person {
     CFStringRef firstName = (CFStringRef)ABRecordCopyValue(person,kABPersonFirstNameProperty);
     CFStringRef lastName = (CFStringRef)ABRecordCopyValue(person,kABPersonLastNameProperty);
-    contactEmailTextField.text = [[NSString alloc] initWithFormat:@"%@ %@", (__bridge NSString*)firstName, (__bridge NSString*)lastName];
+    _contactEmailTextField.text = [[NSString alloc] initWithFormat:@"%@ %@", (__bridge NSString*)firstName, (__bridge NSString*)lastName];
 }
 
 #pragma mark - UITableViewDataSource's members

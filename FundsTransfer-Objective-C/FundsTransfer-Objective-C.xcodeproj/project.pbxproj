@@ -151,8 +151,6 @@
 		F8D544C81A6409F20099E394 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F8D544C11A6409E30099E394 /* NSDictionary+Extension.h */,
-				F8D544C21A6409E30099E394 /* NSDictionary+Extension.m */,
 				F8D544C31A6409E30099E394 /* WebServiceHandler.h */,
 				F8D544C41A6409E30099E394 /* WebServiceHandler.m */,
 				F8D544CF1A640DF60099E394 /* GetBankListWS.h */,
@@ -202,6 +200,8 @@
 		F8D544DC1A64ACDD0099E394 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F8D544C11A6409E30099E394 /* NSDictionary+Extension.h */,
+				F8D544C21A6409E30099E394 /* NSDictionary+Extension.m */,
 				F8D544D41A64201B0099E394 /* Utility.h */,
 				F8D544D51A64201B0099E394 /* Utility.m */,
 			);
