@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F81ADAB81A6517CD008B5BE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81ADAB71A6517CD008B5BE8 /* CoreGraphics.framework */; };
+		F81ADABB1A65189F008B5BE8 /* ViewControllerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = F81ADABA1A65189F008B5BE8 /* ViewControllerTestCase.m */; };
+		F81ADABD1A65196E008B5BE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81ADABC1A65196E008B5BE8 /* Foundation.framework */; };
+		F81ADABF1A651975008B5BE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81ADABE1A651975008B5BE8 /* UIKit.framework */; };
+		F81ADAC61A65222E008B5BE8 /* libKIF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F81ADAC31A65222E008B5BE8 /* libKIF.a */; };
+		F81ADAC81A652258008B5BE8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81ADAC71A652258008B5BE8 /* SenTestingKit.framework */; };
 		F8D544971A63E0070099E394 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544961A63E0070099E394 /* main.m */; };
 		F8D5449A1A63E0070099E394 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544991A63E0070099E394 /* AppDelegate.m */; };
 		F8D5449D1A63E0070099E394 /* FundsTransfer_Objective_C.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8D5449B1A63E0070099E394 /* FundsTransfer_Objective_C.xcdatamodeld */; };
@@ -24,6 +30,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F81ADAA11A6516E7008B5BE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB72047C1680DDAD00278DA2;
+			remoteInfo = KIF;
+		};
+		F81ADAA31A6516E7008B5BE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB60ECC1177F8C83005A041A;
+			remoteInfo = "Test Host";
+		};
+		F81ADAA51A6516E7008B5BE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB60ECEB177F8DB3005A041A;
+			remoteInfo = "KIF Tests";
+		};
+		F81ADAB11A65174C008B5BE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8D544891A63E0070099E394 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8D544901A63E0070099E394;
+			remoteInfo = "FundsTransfer-Objective-C";
+		};
+		F81ADAC21A65222E008B5BE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EABD46AA1857A0C700A5F081;
+			remoteInfo = KIF;
+		};
+		F81ADAC41A65222E008B5BE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EABD46CD1857A0F300A5F081;
+			remoteInfo = "KIF Tests";
+		};
 		F8D544AE1A63E0070099E394 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8D544891A63E0070099E394 /* Project object */;
@@ -34,6 +82,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KIF.xcodeproj; path = "FundsTransfer-Objective-C/Frameworks/KIF/KIF.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		F81ADAAB1A65174C008B5BE8 /* Acceptance Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81ADAAE1A65174C008B5BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81ADAB71A6517CD008B5BE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F81ADAB91A65189F008B5BE8 /* ViewControllerTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTestCase.h; sourceTree = "<group>"; };
+		F81ADABA1A65189F008B5BE8 /* ViewControllerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTestCase.m; sourceTree = "<group>"; };
+		F81ADABC1A65196E008B5BE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F81ADABE1A651975008B5BE8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F81ADAC71A652258008B5BE8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		F8D544911A63E0070099E394 /* FundsTransfer-Objective-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FundsTransfer-Objective-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D544951A63E0070099E394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8D544961A63E0070099E394 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +124,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F81ADAA81A65174C008B5BE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81ADAC81A652258008B5BE8 /* SenTestingKit.framework in Frameworks */,
+				F81ADAC61A65222E008B5BE8 /* libKIF.a in Frameworks */,
+				F81ADABF1A651975008B5BE8 /* UIKit.framework in Frameworks */,
+				F81ADABD1A65196E008B5BE8 /* Foundation.framework in Frameworks */,
+				F81ADAB81A6517CD008B5BE8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8D5448E1A63E0070099E394 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,11 +153,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F81ADA9B1A6516E7008B5BE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F81ADAC31A65222E008B5BE8 /* libKIF.a */,
+				F81ADAA21A6516E7008B5BE8 /* libKIF.a */,
+				F81ADAA41A6516E7008B5BE8 /* Test Host.app */,
+				F81ADAC51A65222E008B5BE8 /* KIF Tests - XCTest.xctest */,
+				F81ADAA61A6516E7008B5BE8 /* KIF Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F81ADAAC1A65174C008B5BE8 /* Acceptance Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */,
+				F81ADAAD1A65174C008B5BE8 /* Supporting Files */,
+				F81ADAB91A65189F008B5BE8 /* ViewControllerTestCase.h */,
+				F81ADABA1A65189F008B5BE8 /* ViewControllerTestCase.m */,
+			);
+			path = "Acceptance Tests";
+			sourceTree = "<group>";
+		};
+		F81ADAAD1A65174C008B5BE8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F81ADAAE1A65174C008B5BE8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F81ADAC91A652322008B5BE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F81ADAC71A652258008B5BE8 /* SenTestingKit.framework */,
+				F81ADABE1A651975008B5BE8 /* UIKit.framework */,
+				F81ADABC1A65196E008B5BE8 /* Foundation.framework */,
+				F81ADAB71A6517CD008B5BE8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F8D544881A63E0070099E394 = {
 			isa = PBXGroup;
 			children = (
 				F8D544931A63E0070099E394 /* FundsTransfer-Objective-C */,
-				F8D544B01A63E0070099E394 /* FundsTransfer-Objective-CTests */,
+				F8D544B01A63E0070099E394 /* XCTest - Unit Testing */,
+				F81ADAAC1A65174C008B5BE8 /* Acceptance Tests */,
 				F8D544921A63E0070099E394 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +210,7 @@
 			children = (
 				F8D544911A63E0070099E394 /* FundsTransfer-Objective-C.app */,
 				F8D544AD1A63E0070099E394 /* FundsTransfer-Objective-CTests.xctest */,
+				F81ADAAB1A65174C008B5BE8 /* Acceptance Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +223,7 @@
 				F8D544C91A640A000099E394 /* Controller */,
 				F8D544C81A6409F20099E394 /* API */,
 				F8D544DC1A64ACDD0099E394 /* Utility */,
+				F81ADAC91A652322008B5BE8 /* Frameworks */,
 				F8D544CC1A640BA80099E394 /* Others */,
 				F8D544981A63E0070099E394 /* AppDelegate.h */,
 				F8D544991A63E0070099E394 /* AppDelegate.m */,
@@ -131,12 +245,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F8D544B01A63E0070099E394 /* FundsTransfer-Objective-CTests */ = {
+		F8D544B01A63E0070099E394 /* XCTest - Unit Testing */ = {
 			isa = PBXGroup;
 			children = (
 				F8D544B31A63E0070099E394 /* FundsTransfer_Objective_CTests.m */,
 				F8D544B11A63E0070099E394 /* Supporting Files */,
 			);
+			name = "XCTest - Unit Testing";
 			path = "FundsTransfer-Objective-CTests";
 			sourceTree = "<group>";
 		};
@@ -211,6 +326,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F81ADAAA1A65174C008B5BE8 /* Acceptance Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81ADAB31A65174C008B5BE8 /* Build configuration list for PBXNativeTarget "Acceptance Tests" */;
+			buildPhases = (
+				F81ADAA71A65174C008B5BE8 /* Sources */,
+				F81ADAA81A65174C008B5BE8 /* Frameworks */,
+				F81ADAA91A65174C008B5BE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81ADAB21A65174C008B5BE8 /* PBXTargetDependency */,
+			);
+			name = "Acceptance Tests";
+			productName = "Acceptance Tests";
+			productReference = F81ADAAB1A65174C008B5BE8 /* Acceptance Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F8D544901A63E0070099E394 /* FundsTransfer-Objective-C */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8D544B71A63E0070099E394 /* Build configuration list for PBXNativeTarget "FundsTransfer-Objective-C" */;
@@ -255,6 +388,10 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = BenjaminSoft;
 				TargetAttributes = {
+					F81ADAAA1A65174C008B5BE8 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = F8D544901A63E0070099E394;
+					};
 					F8D544901A63E0070099E394 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -275,15 +412,67 @@
 			mainGroup = F8D544881A63E0070099E394;
 			productRefGroup = F8D544921A63E0070099E394 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F81ADA9B1A6516E7008B5BE8 /* Products */;
+					ProjectRef = F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F8D544901A63E0070099E394 /* FundsTransfer-Objective-C */,
 				F8D544AC1A63E0070099E394 /* FundsTransfer-Objective-CTests */,
+				F81ADAAA1A65174C008B5BE8 /* Acceptance Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		F81ADAA21A6516E7008B5BE8 /* libKIF.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKIF.a;
+			remoteRef = F81ADAA11A6516E7008B5BE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F81ADAA41A6516E7008B5BE8 /* Test Host.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Test Host.app";
+			remoteRef = F81ADAA31A6516E7008B5BE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F81ADAA61A6516E7008B5BE8 /* KIF Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KIF Tests.octest";
+			remoteRef = F81ADAA51A6516E7008B5BE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F81ADAC31A65222E008B5BE8 /* libKIF.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKIF.a;
+			remoteRef = F81ADAC21A65222E008B5BE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F81ADAC51A65222E008B5BE8 /* KIF Tests - XCTest.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KIF Tests - XCTest.xctest";
+			remoteRef = F81ADAC41A65222E008B5BE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		F81ADAA91A65174C008B5BE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8D5448F1A63E0070099E394 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,6 +493,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F81ADAA71A65174C008B5BE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81ADABB1A65189F008B5BE8 /* ViewControllerTestCase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8D5448D1A63E0070099E394 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,6 +529,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F81ADAB21A65174C008B5BE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8D544901A63E0070099E394 /* FundsTransfer-Objective-C */;
+			targetProxy = F81ADAB11A65174C008B5BE8 /* PBXContainerItemProxy */;
+		};
 		F8D544AF1A63E0070099E394 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8D544901A63E0070099E394 /* FundsTransfer-Objective-C */;
@@ -359,6 +561,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F81ADAB41A65174C008B5BE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FundsTransfer-Objective-C.app/FundsTransfer-Objective-C";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Acceptance Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		F81ADAB51A65174C008B5BE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FundsTransfer-Objective-C.app/FundsTransfer-Objective-C";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				INFOPLIST_FILE = "Acceptance Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
 		F8D544B51A63E0070099E394 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -496,6 +746,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F81ADAB31A65174C008B5BE8 /* Build configuration list for PBXNativeTarget "Acceptance Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81ADAB41A65174C008B5BE8 /* Debug */,
+				F81ADAB51A65174C008B5BE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F8D5448C1A63E0070099E394 /* Build configuration list for PBXProject "FundsTransfer-Objective-C" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -512,6 +770,7 @@
 				F8D544B91A63E0070099E394 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8D544BA1A63E0070099E394 /* Build configuration list for PBXNativeTarget "FundsTransfer-Objective-CTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +779,7 @@
 				F8D544BC1A63E0070099E394 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
