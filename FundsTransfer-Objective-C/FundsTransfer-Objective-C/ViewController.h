@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate> {
     @private
         IBOutlet UIView* accountInfoView;
         IBOutlet UILabel* balanceAmountLabel;

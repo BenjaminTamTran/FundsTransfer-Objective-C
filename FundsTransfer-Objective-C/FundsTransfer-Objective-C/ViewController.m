@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <AddressBookUI/AddressBookUI.h>
 #import "GetBankListWS.h"
 #import "GetAccountInfoWS.h"
 
@@ -147,14 +146,15 @@
     transferAreaTopConstraint.constant = accountInfoView.frame.origin.y;
 }
 
-
 #pragma mark - Actions
 - (IBAction)hideKeyBoardAction:(id)sender {
     [self.view endEditing:YES];
 }
 
 - (IBAction)openAddressBookButton:(id)sender {
-    
+    ABPeoplePickerNavigationController* picker = [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (IBAction)goBackAction:(id)sender {
@@ -192,6 +192,13 @@
 
 - (IBAction)confirmPaymentAction:(id)sender {
 
+}
+
+#pragma mark - ABPeoplePickerNavigationControllerDelegate's methods
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController*)peoplePicker didSelectPerson:(ABRecordRef)person {
+    CFStringRef firstName = (CFStringRef)ABRecordCopyValue(person,kABPersonFirstNameProperty);
+    CFStringRef lastName = (CFStringRef)ABRecordCopyValue(person,kABPersonLastNameProperty);
+    contactEmailTextField.text = [[NSString alloc] initWithFormat:@"%@ %@", (__bridge NSString*)firstName, (__bridge NSString*)lastName];
 }
 
 #pragma mark - UITableViewDataSource's members
