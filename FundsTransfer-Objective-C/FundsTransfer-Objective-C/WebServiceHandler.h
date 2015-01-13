@@ -15,8 +15,5 @@
 - (void)didRequestFailWithError:(NSError *)error;
 - (void)cancelRequest;
 - (void)startGetRequest:(NSString*) urlRequest;
-- (void)startGetMultiRequestForTimeZone:(NSString*) urlRequest;
-- (void)startPostRequest:(NSString*) urlRequest withBodyString:(NSString*) bodyStr;
-- (void)startPostRequest:(NSString*) urlRequest withBodyData:(NSMutableData*)bodyData;
 -(void)startPostRequestWithJSON:(NSString*) urlRequest withBodyData:(NSData*)bodyData;
 @end

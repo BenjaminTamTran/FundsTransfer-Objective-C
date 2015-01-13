@@ -20,6 +20,7 @@
 		F8D544D11A640DF60099E394 /* GetBankListWS.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544D01A640DF60099E394 /* GetBankListWS.m */; };
 		F8D544D61A64201B0099E394 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544D51A64201B0099E394 /* Utility.m */; };
 		F8D544DB1A64A1A90099E394 /* GetAccountInfoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544DA1A64A1A90099E394 /* GetAccountInfoWS.m */; };
+		F8D544DF1A64B7D30099E394 /* PostFundsTransferWS.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544DE1A64B7D30099E394 /* PostFundsTransferWS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		F8D544D81A64A0610099E394 /* Localize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Localize.h; sourceTree = "<group>"; };
 		F8D544D91A64A1A90099E394 /* GetAccountInfoWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAccountInfoWS.h; sourceTree = "<group>"; };
 		F8D544DA1A64A1A90099E394 /* GetAccountInfoWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAccountInfoWS.m; sourceTree = "<group>"; };
+		F8D544DD1A64B7D30099E394 /* PostFundsTransferWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostFundsTransferWS.h; sourceTree = "<group>"; };
+		F8D544DE1A64B7D30099E394 /* PostFundsTransferWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostFundsTransferWS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				F8D544D01A640DF60099E394 /* GetBankListWS.m */,
 				F8D544D91A64A1A90099E394 /* GetAccountInfoWS.h */,
 				F8D544DA1A64A1A90099E394 /* GetAccountInfoWS.m */,
+				F8D544DD1A64B7D30099E394 /* PostFundsTransferWS.h */,
+				F8D544DE1A64B7D30099E394 /* PostFundsTransferWS.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -187,9 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				F8D544CD1A640BF00099E394 /* Config.h */,
+				F8D544D81A64A0610099E394 /* Localize.h */,
 				F8D544CE1A640D320099E394 /* prefix.h */,
 				F8D544D21A64134E0099E394 /* Resource.h */,
-				F8D544D41A64201B0099E394 /* Utility.h */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -197,8 +202,8 @@
 		F8D544DC1A64ACDD0099E394 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F8D544D41A64201B0099E394 /* Utility.h */,
 				F8D544D51A64201B0099E394 /* Utility.m */,
-				F8D544D81A64A0610099E394 /* Localize.h */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				F8D544A01A63E0070099E394 /* ViewController.m in Sources */,
 				F8D544971A63E0070099E394 /* main.m in Sources */,
 				F8D544DB1A64A1A90099E394 /* GetAccountInfoWS.m in Sources */,
+				F8D544DF1A64B7D30099E394 /* PostFundsTransferWS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GetBankListWS.h"
 #import "GetAccountInfoWS.h"
+#import "PostFundsTransferWS.h"
 
 @implementation ViewController {
     CGFloat transferInfoDefaultY;
@@ -27,7 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self fetchAccountData];
+//    [self fetchAccountData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -158,11 +159,31 @@
 }
 
 - (IBAction)goBackAction:(id)sender {
-
+    leadingMainViewPaymentRConstraint.constant = kScreenWidth;
 }
 
 - (IBAction)payNowAction:(id)sender {
-
+    NSString* accountNumber =  accountNumberTextFiled.text;
+    NSString* amountTransfer =  amountTransferTxtField.text;
+    if ((accountNumber.length < 1) || (amountTransfer.length < 1)) {
+        [Utility showAlertWithMessage:kInputParamsWrongMessage withTitle:kTitleWarning];
+        return;
+    }
+    [Utility addIndicator:self];
+    [PostFundsTransferWS postFundsTransferWS:^(NSString *destAcctName, NSError *error) {
+        [Utility removeIndicator:self];
+        if (destAcctName != nil) {
+            leadingMainViewPaymentRConstraint.constant = 0;
+            accountNameLabel.text = destAcctName;
+            NSString* amountTransfer =  amountTransferTxtField.text;
+            if (amountTransfer.length > 0) {
+                amountTransferLabel.text = [Utility amountInRpFormat:amountTransfer];
+            }
+        }
+        else {
+            [Utility showAlertWithMessage:kSomethingWrongMessage withTitle:kTitleWarning];
+        }
+    } withDestAcctNo:accountNumberTextFiled.text andAmount:amountTransferTxtField.text];
 }
 
 - (IBAction)openBankListAciton:(id)sender {
@@ -191,7 +212,7 @@
 }
 
 - (IBAction)confirmPaymentAction:(id)sender {
-
+    [Utility showAlertWithMessage:kPaymentSentMessage withTitle:kTitlePayment];
 }
 
 #pragma mark - ABPeoplePickerNavigationControllerDelegate's methods

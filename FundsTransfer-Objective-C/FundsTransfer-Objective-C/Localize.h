@@ -11,8 +11,11 @@
 
 #define kTitleOKBtn                          @"OK"
 #define kSomethingWrongMessage               @"Some thing went wrong!"
+#define kInputParamsWrongMessage             @"Please input enough information to transfer!"
 #define kTitleWarning                        @"Warning"
+#define kTitlePayment                        @"Payment"
 #define kTitleError                          @"Error"
 #define kConnectionErrorMessage              @"Network connection is down!"
+#define kPaymentSentMessage                  @"Payment has been sent!"
 
 #endif
