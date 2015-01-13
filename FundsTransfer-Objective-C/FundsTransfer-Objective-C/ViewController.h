@@ -34,7 +34,8 @@
     @property (weak, nonatomic) IBOutlet UILabel* accountNameLabel;
     @property (weak, nonatomic) IBOutlet UITextField* amountTransferTxtField;
 
-
+// For testing only
+- (void)fakeCallingBankList:(NSArray*) bankArr;
 
 @end
 

@@ -219,7 +219,7 @@
             [_bankListTableView reloadData];
         }
         else {
-            [Utility showAlertWithMessage:kSomethingWrongMessage withTitle:kTitleWarning];
+            [Utility showAlertWithMessage:kConnectionErrorMessage withTitle:kTitleWarning];
         }
     }];
 }
@@ -272,6 +272,14 @@
         selectedBankName = [bankInfo objectForKey:@"Name"];
         selectedBankCode = [bankInfo objectForKey:@"Code"];
     }
+}
+
+
+#pragma mark - XCTest's faking methods
+
+- (void)fakeCallingBankList:(NSArray*) bankArr {
+    dataBankListArr = [[NSMutableArray alloc] initWithArray:bankArr];
+    [_bankListTableView reloadData];
 }
 
 
