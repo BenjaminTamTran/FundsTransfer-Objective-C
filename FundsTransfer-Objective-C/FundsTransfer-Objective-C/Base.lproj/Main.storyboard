@@ -94,6 +94,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFM-h6-f2d" userLabel="Amount TxtField">
                                                 <rect key="frame" x="86" y="8" width="223" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" label="Amount Transfer Label"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ShB-HX-VPe"/>
                                                     <constraint firstAttribute="width" constant="223" id="wJI-6f-TII"/>
@@ -157,6 +158,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGV-0L-V2C" userLabel="Open Address Book">
                                                 <rect key="frame" x="86" y="113" width="223" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" label="Address Book Button"/>
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -237,6 +239,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pi9-RO-vkq" userLabel="Open Bank List">
                                                 <rect key="frame" x="86" y="8" width="223" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" label="Bank List Button"/>
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -264,6 +267,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlv-RA-XHW" userLabel="Acc Num TxtField">
                                                 <rect key="frame" x="86" y="61" width="223" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" label="Account Number Label"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="223" id="3Ds-94-TIC"/>
                                                     <constraint firstAttribute="height" constant="30" id="qvN-Og-OLd"/>
@@ -334,6 +338,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8u-XU-rFi">
                                 <rect key="frame" x="227" y="617" width="123" height="35"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.72941176470000002" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="Pay Now Button"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="DrY-kS-I4S"/>
                                     <constraint firstAttribute="width" constant="123" id="jJC-WW-7uv"/>
@@ -420,6 +425,7 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="Result Payment View"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="O8X-cO-Tbf"/>
                                             <constraint firstAttribute="trailing" secondItem="Lym-Bu-nks" secondAttribute="trailing" constant="10" id="Wf5-8D-14H"/>
@@ -431,6 +437,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCw-Yy-768">
                                         <rect key="frame" x="242" y="497" width="93" height="30"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.72941176470000002" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" label="Confirm Payment Button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="J4a-BY-jif"/>
                                             <constraint firstAttribute="width" constant="93" id="ZS0-rO-sNc"/>
@@ -446,6 +453,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yye-AL-Kgy">
                                         <rect key="frame" x="40" y="497" width="93" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" label="Back To Main View Button"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="93" id="817-Yl-qCk"/>
                                             <constraint firstAttribute="height" constant="30" id="85y-Aj-aDY"/>
@@ -480,6 +488,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWe-W1-I4v">
                                             <rect key="frame" x="25" y="432" width="123" height="35"/>
                                             <color key="backgroundColor" red="0.047058823530000002" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <accessibility key="accessibilityConfiguration" label="Close Bank List Button"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="788-qR-hLa"/>
                                                 <constraint firstAttribute="width" constant="123" id="LuX-BJ-N7z"/>
@@ -495,6 +504,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="201-j6-GUi">
                                             <rect key="frame" x="227" y="432" width="123" height="35"/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.72941176470000002" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <accessibility key="accessibilityConfiguration" label="Select Bank Item"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="OuD-h4-PVY"/>
                                                 <constraint firstAttribute="width" constant="123" id="Yya-mW-RD8"/>
@@ -507,7 +517,7 @@
                                                 <action selector="selectBankInfoAction:" destination="XhE-X3-fFg" eventType="touchUpInside" id="zXr-ur-Edu"/>
                                             </connections>
                                         </button>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PL6-83-2P9" userLabel="BankList Table">
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Bank List Table Identifier" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PL6-83-2P9" userLabel="BankList Table">
                                             <rect key="frame" x="40" y="50" width="295" height="332"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
@@ -516,6 +526,7 @@
                                             </connections>
                                         </tableView>
                                     </subviews>
+                                    <accessibility key="accessibilityConfiguration" label="Bank List Container"/>
                                     <constraints>
                                         <constraint firstItem="PL6-83-2P9" firstAttribute="leading" secondItem="D32-ww-Xur" secondAttribute="leading" constant="40" id="2iG-gE-78d"/>
                                         <constraint firstItem="PL6-83-2P9" firstAttribute="top" secondItem="D32-ww-Xur" secondAttribute="top" constant="50" id="4s0-90-MU8"/>

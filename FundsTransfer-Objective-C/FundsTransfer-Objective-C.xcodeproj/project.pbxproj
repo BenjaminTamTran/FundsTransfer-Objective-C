@@ -157,15 +157,15 @@
 			isa = PBXGroup;
 			children = (
 				F81ADAC31A65222E008B5BE8 /* libKIF.a */,
-				F81ADAA21A6516E7008B5BE8 /* libKIF.a */,
+				F81ADAA21A6516E7008B5BE8 /* libKIF-OCUnit.a */,
 				F81ADAA41A6516E7008B5BE8 /* Test Host.app */,
 				F81ADAC51A65222E008B5BE8 /* KIF Tests - XCTest.xctest */,
-				F81ADAA61A6516E7008B5BE8 /* KIF Tests.octest */,
+				F81ADAA61A6516E7008B5BE8 /* KIF Tests-OCUnit.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F81ADAAC1A65174C008B5BE8 /* Acceptance Tests */ = {
+		F81ADAAC1A65174C008B5BE8 /* Acceptance Test - KIF Framework */ = {
 			isa = PBXGroup;
 			children = (
 				F81ADA9A1A6516E7008B5BE8 /* KIF.xcodeproj */,
@@ -173,6 +173,7 @@
 				F81ADAB91A65189F008B5BE8 /* ViewControllerTestCase.h */,
 				F81ADABA1A65189F008B5BE8 /* ViewControllerTestCase.m */,
 			);
+			name = "Acceptance Test - KIF Framework";
 			path = "Acceptance Tests";
 			sourceTree = "<group>";
 		};
@@ -200,7 +201,7 @@
 			children = (
 				F8D544931A63E0070099E394 /* FundsTransfer-Objective-C */,
 				F8D544B01A63E0070099E394 /* XCTest - Unit Testing */,
-				F81ADAAC1A65174C008B5BE8 /* Acceptance Tests */,
+				F81ADAAC1A65174C008B5BE8 /* Acceptance Test - KIF Framework */,
 				F8D544921A63E0070099E394 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -385,6 +386,7 @@
 		F8D544891A63E0070099E394 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = BenjaminSoft;
 				TargetAttributes = {
@@ -428,10 +430,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F81ADAA21A6516E7008B5BE8 /* libKIF.a */ = {
+		F81ADAA21A6516E7008B5BE8 /* libKIF-OCUnit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libKIF.a;
+			path = "libKIF-OCUnit.a";
 			remoteRef = F81ADAA11A6516E7008B5BE8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -442,10 +444,10 @@
 			remoteRef = F81ADAA31A6516E7008B5BE8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F81ADAA61A6516E7008B5BE8 /* KIF Tests.octest */ = {
+		F81ADAA61A6516E7008B5BE8 /* KIF Tests-OCUnit.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "KIF Tests.octest";
+			path = "KIF Tests-OCUnit.octest";
 			remoteRef = F81ADAA51A6516E7008B5BE8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -753,6 +755,7 @@
 				F81ADAB51A65174C008B5BE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8D5448C1A63E0070099E394 /* Build configuration list for PBXProject "FundsTransfer-Objective-C" */ = {
 			isa = XCConfigurationList;

@@ -134,6 +134,7 @@
     _accountNumberTextFiled.text = @"1020028960";
     _amountTransferTxtField.text = @"9000";
     transferInfoDefaultY = _transferInfoView.frame.origin.y;
+    [_bankListTableView setAccessibilityIdentifier:@"Bank List Tbl Id"];
 }
 
 // Fetch Account information, using API-1

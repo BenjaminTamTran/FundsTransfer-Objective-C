@@ -7,7 +7,9 @@
 //
 
 #import <KIF/KIF.h>
-
+#import "ViewController.h"
 @interface ViewControllerTestCase : KIFTestCase
+
+@property (nonatomic, strong) ViewController *viewC;
 
 @end
