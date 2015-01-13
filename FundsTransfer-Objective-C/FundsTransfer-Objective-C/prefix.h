@@ -21,4 +21,5 @@
     #import "Resource.h"
     #import "NSDictionary+Extension.h"
     #import "Utility.h"
+    #import "Localize.h"
 #endif

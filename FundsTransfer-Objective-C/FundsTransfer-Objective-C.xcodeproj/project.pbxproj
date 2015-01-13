@@ -19,6 +19,7 @@
 		F8D544C71A6409E30099E394 /* WebServiceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544C41A6409E30099E394 /* WebServiceHandler.m */; };
 		F8D544D11A640DF60099E394 /* GetBankListWS.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544D01A640DF60099E394 /* GetBankListWS.m */; };
 		F8D544D61A64201B0099E394 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544D51A64201B0099E394 /* Utility.m */; };
+		F8D544DB1A64A1A90099E394 /* GetAccountInfoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = F8D544DA1A64A1A90099E394 /* GetAccountInfoWS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		F8D544D21A64134E0099E394 /* Resource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
 		F8D544D41A64201B0099E394 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		F8D544D51A64201B0099E394 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		F8D544D81A64A0610099E394 /* Localize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Localize.h; sourceTree = "<group>"; };
+		F8D544D91A64A1A90099E394 /* GetAccountInfoWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAccountInfoWS.h; sourceTree = "<group>"; };
+		F8D544DA1A64A1A90099E394 /* GetAccountInfoWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAccountInfoWS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,16 +102,17 @@
 		F8D544931A63E0070099E394 /* FundsTransfer-Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				F8D544CC1A640BA80099E394 /* Others */,
 				F8D544CB1A640A100099E394 /* View */,
 				F8D544CA1A640A090099E394 /* Model */,
 				F8D544C91A640A000099E394 /* Controller */,
 				F8D544C81A6409F20099E394 /* API */,
+				F8D544DC1A64ACDD0099E394 /* Utility */,
+				F8D544CC1A640BA80099E394 /* Others */,
 				F8D544981A63E0070099E394 /* AppDelegate.h */,
 				F8D544991A63E0070099E394 /* AppDelegate.m */,
 				F8D544A11A63E0070099E394 /* Main.storyboard */,
-				F8D544A41A63E0070099E394 /* Images.xcassets */,
 				F8D544A61A63E0070099E394 /* LaunchScreen.xib */,
+				F8D544A41A63E0070099E394 /* Images.xcassets */,
 				F8D5449B1A63E0070099E394 /* FundsTransfer_Objective_C.xcdatamodeld */,
 				F8D544941A63E0070099E394 /* Supporting Files */,
 			);
@@ -149,6 +154,8 @@
 				F8D544C41A6409E30099E394 /* WebServiceHandler.m */,
 				F8D544CF1A640DF60099E394 /* GetBankListWS.h */,
 				F8D544D01A640DF60099E394 /* GetBankListWS.m */,
+				F8D544D91A64A1A90099E394 /* GetAccountInfoWS.h */,
+				F8D544DA1A64A1A90099E394 /* GetAccountInfoWS.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -183,9 +190,17 @@
 				F8D544CE1A640D320099E394 /* prefix.h */,
 				F8D544D21A64134E0099E394 /* Resource.h */,
 				F8D544D41A64201B0099E394 /* Utility.h */,
-				F8D544D51A64201B0099E394 /* Utility.m */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		F8D544DC1A64ACDD0099E394 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F8D544D51A64201B0099E394 /* Utility.m */,
+				F8D544D81A64A0610099E394 /* Localize.h */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +311,7 @@
 				F8D544C71A6409E30099E394 /* WebServiceHandler.m in Sources */,
 				F8D544A01A63E0070099E394 /* ViewController.m in Sources */,
 				F8D544971A63E0070099E394 /* main.m in Sources */,
+				F8D544DB1A64A1A90099E394 /* GetAccountInfoWS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

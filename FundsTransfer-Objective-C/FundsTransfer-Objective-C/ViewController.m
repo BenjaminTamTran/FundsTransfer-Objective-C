@@ -9,9 +9,13 @@
 #import "ViewController.h"
 #import <AddressBookUI/AddressBookUI.h>
 #import "GetBankListWS.h"
+#import "GetAccountInfoWS.h"
 
 @implementation ViewController {
     CGFloat transferInfoDefaultY;
+    NSMutableArray* dataBankListArr;
+    NSString* selectedBankName;
+    NSString* selectedBankCode;
 }
 
 #pragma mark - View's lifecycle
@@ -19,11 +23,12 @@
     [super viewDidLoad];
     [self _localize];
     [self _visualize];
+    [self _initialize];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self fetchData];
+    [self fetchAccountData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -76,6 +81,12 @@
 
 #pragma mark - Class's private methods
 - (void)_localize {
+    dataBankListArr = [[NSMutableArray alloc] init];
+    selectedBankName = @"";
+    selectedBankCode = @"";
+}
+
+- (void)_initialize {
     
 }
 
@@ -113,11 +124,16 @@
     transferInfoDefaultY = transferInfoView.frame.origin.y;
 }
 
-- (void)fetchData {
-    [self addIndicator];
-    [GetBankListWS getBankListWS:^(NSArray *data, NSError *error) {
-        NSLog(@"data.count %lu", (unsigned long)data.count);
-        [self removeIndicator];
+- (void)fetchAccountData {
+    [Utility addIndicator:self];
+    [GetAccountInfoWS getGetAccountInfoWS:^(NSString *balanceAmount, NSString *remainingLimit, NSError *error) {
+        [Utility removeIndicator:self];
+        if (balanceAmount != nil) {
+            balanceAmountLabel.text = [Utility amountInRpFormat:balanceAmount];
+        }
+        if (remainingLimit != nil) {
+            leftAmountLabel.text = [Utility amountInRpFormat:remainingLimit];
+        }
     }];
 }
 
@@ -131,85 +147,64 @@
     transferAreaTopConstraint.constant = accountInfoView.frame.origin.y;
 }
 
-- (void)addIndicator{
-    UIView* indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-    [self.view addSubview:indicatorView];
-    indicatorView.tag = 1001;
-    indicatorView.backgroundColor = [UIColor clearColor];
-    indicatorView.center = [self.view center];
-    
-    //gray background
-    UIView* backGround = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
-    backGround.backgroundColor = [UIColor blackColor];
-    backGround.alpha = 0.6;
-    backGround.layer.cornerRadius = 10.0;
-    backGround.layer.masksToBounds = YES;
-    [indicatorView addSubview:backGround];
-    
-    //indicator
-    UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    activityIndicator.alpha = 1.0;
-    activityIndicator.frame = CGRectMake(50, 50, 50, 50);
-    activityIndicator.backgroundColor = [UIColor clearColor];
-    activityIndicator.hidesWhenStopped = NO;
-    [indicatorView addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    
-    //label
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(40, 110, 100, 20)];
-    label.text = @"Loading...";
-    label.textColor = [UIColor whiteColor];
-    [indicatorView addSubview:label];
-}
-
-- (void)removeIndicator{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        for (UIView* vElement in self.view.subviews) {
-            if (vElement.tag == 1001) {
-                [vElement removeFromSuperview];
-            }
-            else {
-                vElement.userInteractionEnabled = YES;
-            }
-        }
-    });
-}
-
 
 #pragma mark - Actions
 - (IBAction)hideKeyBoardAction:(id)sender {
     [self.view endEditing:YES];
 }
+
 - (IBAction)openAddressBookButton:(id)sender {
     
 }
+
 - (IBAction)goBackAction:(id)sender {
 
 }
+
 - (IBAction)payNowAction:(id)sender {
 
 }
+
 - (IBAction)openBankListAciton:(id)sender {
-
+    [Utility addIndicator:self];
+    [GetBankListWS getBankListWS:^(NSArray *dataArr, NSError *error) {
+        NSLog(@"data.count %lu", (unsigned long)dataArr.count);
+        [Utility removeIndicator:self];
+        if (dataArr != nil) {
+            leadingMainViewBankLRConstraint.constant = 0;
+            dataBankListArr = [[NSMutableArray alloc] initWithArray:dataArr];
+            [bankListTableView reloadData];
+        }
+        else {
+            [Utility showAlertWithMessage:kSomethingWrongMessage withTitle:kTitleWarning];
+        }
+    }];
 }
+
 - (IBAction)closeBankListAction:(id)sender {
-
+    leadingMainViewBankLRConstraint.constant = kScreenWidth;
 }
+
 - (IBAction)selectBankInfoAction:(id)sender {
-
+    bankSelectedTxtField.text = selectedBankName;
+    leadingMainViewBankLRConstraint.constant = kScreenWidth;
 }
+
 - (IBAction)confirmPaymentAction:(id)sender {
 
 }
 
 #pragma mark - UITableViewDataSource's members
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return dataBankListArr.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"abc"];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kBankCellIdentifier];
+    NSDictionary* bankInfo = [dataBankListArr objectAtIndex:indexPath.row];
+    if (bankInfo != nil) {
+        cell.textLabel.text = [bankInfo objectForKey:@"Name"];
+    }
     return cell;
 }
 
@@ -217,7 +212,11 @@
 #pragma mark - UITableViewDelegate's members
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSDictionary* bankInfo = [dataBankListArr objectAtIndex:indexPath.row];
+    if (bankInfo != nil) {
+        selectedBankName = [bankInfo objectForKey:@"Name"];
+        selectedBankCode = [bankInfo objectForKey:@"Code"];
+    }
 }
 
 
